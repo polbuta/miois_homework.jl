@@ -29,22 +29,22 @@ function firstnorm(vec_::AbstractVector{<:Number})
 end
 
 function secondnorm(vec_::AbstractVector{<:Number})
-    tot-sq=0
+    tot_sq=0
     for i in 1:length(vec_)
-        tot-sq=vec_[i]^2
+        tot_sq=vec_[i]^2
     end
-    return tot-sq;
+    return tot_sq;
 end
 
 function infnorm(vec_::AbstractVector{<:Number})
-    max-zn = 0.0
+    max_zn = 0.0
     for i in 1:length(vec_)
         zn = abs(vec_[i])
-        if znl > max-zn
-            max-zn = zn
+        if znl > max_zn
+            max_zn = zn
         end
     end
-    return max-zn
+    return max_zn
 end
 
 function firstnorm(vec_::AbstractMatrix{<:Number})
