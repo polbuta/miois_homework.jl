@@ -47,13 +47,13 @@ function infnorm(vec_::AbstractVector{<:Number})
     return max_zn
 end
 
-function firstnorm(vec_::AbstractMatrix{<:Number})
-    n = size(A)
+function firstnorm(mat_::AbstractMatrix{<:Number})
+    n = size(mat_)
     max_s=0
     for j in 1:n
         s=0
         for i in 1:n
-            s+=abs(vec_[i, j])
+            s+=abs(mat_[i, j])
         end
         if s>max_s
             max_s = s
@@ -62,13 +62,13 @@ function firstnorm(vec_::AbstractMatrix{<:Number})
     return max_s
 end
 
-function infnorm(vec_::AbstractMatrix{<:Number})
-    n = size(A)
+function infnorm(mat_::AbstractMatrix{<:Number})
+    n = size(mat_)
     max_rs=0
     for i in 1:n
         rs=0
         for j in 1:n
-            rs+=abs(vec_[i, j])
+            rs+=abs(mat_[i, j])
         end
         if rs>max_rs
             max_rs=rs
