@@ -40,7 +40,7 @@ function infnorm(vec_::AbstractVector{<:Number})
     max_zn=0
     for i in 1:length(vec_)
         zn=abs(vec_[i])
-        if znl>max_zn
+        if zn>max_zn
             max_zn=zn
         end
     end
