@@ -1,11 +1,21 @@
 export getdigits, touppercase, firstnorm, secondnorm, infnorm, isleap, chesscolor
 
 function getdigits(a)
-    return 0
+    r=[]
+    while a>0
+        pushfirst!(r,a%10)
+        a=a%10    
+    return r
 end
 
 function touppercase(str_)
-    return 0;
+    t=[]
+    for index in str_
+            if (index>='a') && (index<='z')
+                push!(t,index=index+('A'-'a'))
+            else
+                push!(t, index)
+    return t;
 end
 
 function firstnorm(vec_::AbstractVector{<:Number})
