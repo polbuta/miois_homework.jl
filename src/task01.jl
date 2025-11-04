@@ -43,5 +43,13 @@ function isleap(year)
 end
 
 function chesscolor(cell1, cell2)
-    return false;
+    p1=cell1[1]-'a'+1
+    p2=cell1[2]
+    p3=cell2[1]-'a'+1
+    p4=cell2[2]
+    if (p1+p2)%2==(p3+p4)%2
+        return true;
+    else
+        return false;
+    end    
 end
