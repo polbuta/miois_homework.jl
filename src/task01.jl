@@ -37,22 +37,44 @@ function secondnorm(vec_::AbstractVector{<:Number})
 end
 
 function infnorm(vec_::AbstractVector{<:Number})
-    max_zn = 0.0
+    max_zn=0
     for i in 1:length(vec_)
-        zn = abs(vec_[i])
-        if znl > max_zn
-            max_zn = zn
+        zn=abs(vec_[i])
+        if znl>max_zn
+            max_zn=zn
         end
     end
     return max_zn
 end
 
 function firstnorm(vec_::AbstractMatrix{<:Number})
-    return 0;
+    n = size(A)
+    max_s=0
+    for j in 1:n
+        s=0
+        for i in 1:n
+            s+=abs(vec_[i, j])
+        end
+        if s>max_s
+            max_s = s
+        end
+    end
+    return max_s
 end
 
 function infnorm(vec_::AbstractMatrix{<:Number})
-    return 0;
+    n = size(A)
+    max_rs=0
+    for i in 1:n
+        rs=0
+        for j in 1:n
+            rs+=abs(vec_[i, j])
+        end
+        if rs>max_rs
+            max_rs=rs
+        end
+    end
+    return max_rs
 end
 
 function isleap(year)
