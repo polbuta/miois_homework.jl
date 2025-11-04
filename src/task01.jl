@@ -21,15 +21,30 @@ function touppercase(str_)
 end
 
 function firstnorm(vec_::AbstractVector{<:Number})
-    return 0;
+    tot=0
+    for i in 1:length(vec_)
+        tot+=abs(x[i])
+    end
+    return tot;
 end
 
 function secondnorm(vec_::AbstractVector{<:Number})
-    return 0;
+    tot-sq=0
+    for i in 1:length(vec_)
+        tot-sq=vec_[i]^2
+    end
+    return tot-sq;
 end
 
 function infnorm(vec_::AbstractVector{<:Number})
-    return 0;
+    max-zn = 0.0
+    for i in 1:length(vec_)
+        zn = abs(vec_[i])
+        if znl > max-zn
+            max-zn = zn
+        end
+    end
+    return max-zn
 end
 
 function firstnorm(vec_::AbstractMatrix{<:Number})
