@@ -10,11 +10,13 @@ end
 
 function touppercase(str_)
     t=[]
-    for index in str_
-            if (index>='a') && (index<='z')
-                push!(t,index=index+('A'-'a'))
-            else
-                push!(t, index)
+    for ind in str_
+        if (ind>='a') && (ind<='z')
+            push!(t,ind+('A'-'a'))
+        else
+            push!(t, ind)
+        end
+    end    
     return t;
 end
 
@@ -39,6 +41,15 @@ function infnorm(vec_::AbstractMatrix{<:Number})
 end
 
 function isleap(year)
+    if year%4==0
+        return true
+    end
+    elseif year%100==0
+        return false
+    end  
+    elseif year%400==0
+        return true;      
+    end
     return false;
 end
 
