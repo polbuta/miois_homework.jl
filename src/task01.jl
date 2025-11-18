@@ -81,10 +81,8 @@ end
 function isleap(year)
     if year%4==0
         return true
-    end
     elseif year%100==0
         return false
-    end  
     elseif year%400==0
         return true;      
     end
