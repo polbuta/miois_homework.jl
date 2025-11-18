@@ -72,12 +72,12 @@ function infnorm(mat_::AbstractMatrix{<:Number})
 end
 
 function isleap(year)
-    if year%4==0
+    if (year % 400) == 0
         return true;
-    elseif year%100==0
-        return false;
-    elseif year%400==0
-        return true;      
+    elseif (year % 100) == 0
+        return false
+    elseif (year % 4) == 0
+        return true
     end
     return false;
 end
