@@ -39,7 +39,7 @@ end
 
 function infnorm(vec_::AbstractVector{<:Number})
     max_zn=0;
-    for i in vec_
+    for zn in vec_
         if zn>max_zn
             max_zn=zn;
         end
