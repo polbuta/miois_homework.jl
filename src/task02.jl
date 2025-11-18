@@ -1,6 +1,6 @@
 function arraysum(ar::AbstractVector{<:Number})::Float64
     sum = 0;
-    for i in number
+    for i in ar
         sum+=i;
     end
     return sum;
