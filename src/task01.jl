@@ -5,6 +5,7 @@ function getdigits(a)
     while a>0
         pushfirst!(r,a%10)
         a=a%10    
+    end
     return r
 end
 
