@@ -4,7 +4,7 @@ function getdigits(a)
     r=[];
     while a>0
         pushfirst!(r,a%10);
-        a=a%10;
+        a=a÷10;
     end
     return r;
 end
@@ -18,29 +18,28 @@ function touppercase(str_)
             push!(t, ind);
         end
     end    
-    return t;
+    return join(t);
 end
 
 function firstnorm(vec_::AbstractVector{<:Number})
     tot=0;
-    for i in 1:length(vec_)
-        tot+=abs(x[i]);
+    for i in vec_
+        tot+=abs(i);
     end
     return tot;
 end
 
 function secondnorm(vec_::AbstractVector{<:Number})
     tot_sq=0;
-    for i in 1:length(vec_)
-        tot_sq=vec_[i]^2;
+    for i in vec_
+        tot_sq+=i^2;
     end
-    return tot_sq;
+    return sqrt(tot_sq);
 end
 
 function infnorm(vec_::AbstractVector{<:Number})
     max_zn=0;
-    for i in 1:length(vec_)
-        zn=abs(vec_[i]);
+    for i in vec_
         if zn>max_zn
             max_zn=zn;
         end
@@ -49,33 +48,27 @@ function infnorm(vec_::AbstractVector{<:Number})
 end
 
 function firstnorm(mat_::AbstractMatrix{<:Number})
-    n = size(mat_);
-    max_s=0;
-    for j in 1:n
-        s=0;
-        for i in 1:n
-            s+=abs(mat_[i, j]);
+    ret = 0;
+    for col in eachcol(mat_)
+        buf = 0
+        for el in col
+            buf += el;
         end
-        if s>max_s
-            max_s = s;
-        end
+        ret = ret < buf ? buf : ret;
     end
-    return max_s;
+    return ret;
 end
 
 function infnorm(mat_::AbstractMatrix{<:Number})
-    n = size(mat_);
-    max_rs=0;
-    for i in 1:n
-        rs=0;
-        for j in 1:n
-            rs+=abs(mat_[i, j]);
+    ret = 0;
+    for col in eachrow(mat_)
+        buf = 0
+        for el in col
+            buf+=el;
         end
-        if rs>max_rs
-            max_rs=rs;
-        end
+        ret = ret < buf ? buf : ret;
     end
-    return max_rs;
+    return ret;
 end
 
 function isleap(year)
